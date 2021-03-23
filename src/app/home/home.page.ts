@@ -7,6 +7,19 @@ import { Component } from '@angular/core';
 })
 export class HomePage {
 
-  constructor() {}
+  segmentModel = "pomodoro";
+
+  constructor(
+  ) { }
+
+  ngOnInit() {
+
+  }
+
+  segmentChanged(event){
+    console.log(this.segmentModel);
+    
+    console.log(event);
+  }
 
 }

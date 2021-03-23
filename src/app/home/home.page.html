@@ -1,20 +1,68 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Blank
+      Pomodoro
     </ion-title>
   </ion-toolbar>
+
+
+  <ion-toolbar color="primary">
+    
+    <ion-segment 
+    value="all" 
+    color="tertiary" 
+    scrollable="true"
+    mode="ios"
+    [(ngModel)]="segmentModel" 
+    (ionChange)="segmentChanged($event)">
+        <ion-segment-button value="pomodoro">
+         POMODORO
+        </ion-segment-button>
+        <ion-segment-button value="shortbreak">
+         SHORT BREAK
+        </ion-segment-button>
+        <ion-segment-button value="longbreak">
+          LONG BREAK
+         </ion-segment-button>
+      </ion-segment>
+    </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <ion-content [fullscreen]="true" class="ion-padding">
+  <ion-card *ngIf="segmentModel === 'pomodoro'">
+    <ion-card-header>
+      <ion-card-title>Pomodoro</ion-card-title>
+    </ion-card-header>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+    <ion-card-content>
+      
+    </ion-card-content>
+  </ion-card>
+  <ion-card *ngIf="segmentModel === 'shortbreak'">
+    <ion-card-header>
+      
+      <ion-card-title>Short Break</ion-card-title>
+    </ion-card-header>
+  
+    <ion-card-content>
+     
+    </ion-card-content>
+  </ion-card>
+  <ion-card *ngIf="segmentModel === 'longbreak'">
+    <ion-card-header>
+      
+      <ion-card-title>Long Break</ion-card-title>
+    </ion-card-header>
+  
+    <ion-card-content>
+     
+    </ion-card-content>
+  </ion-card>
+   
 </ion-content>
+<!-- fab placed to the bottom end -->
+<ion-fab vertical="bottom" horizontal="end" slot="fixed">
+  <ion-fab-button>
+    <ion-icon name="play"></ion-icon>
+  </ion-fab-button>
+</ion-fab>
